@@ -1,7 +1,0 @@
-{
-  "name": "desafio-kpmg",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "react"
-}

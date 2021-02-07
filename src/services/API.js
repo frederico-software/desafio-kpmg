@@ -2,8 +2,8 @@ import axios from "axios";
 
 const API_KEY = '39267d69a225ed0c8fb27c0959311d7f';
 
-export function getTopRated() {
-    return axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`);
+export function getTopRated(page) {
+    return axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=${page}`);
 
 }
 

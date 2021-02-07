@@ -1,19 +1,17 @@
 # Movie App
 
 Movie App written for KPMG Challenge.
+by Frederico Rodrigues
 
 
 # Screenshots
 
-![Dashboard](https://i.ibb.co/QrRgw5n/dashboard.png)
-![Movies](https://i.ibb.co/TY1cZtH/movies.png)
-![About](https://i.ibb.co/BNd9dLj/about.png)
-![New rating](https://i.ibb.co/PtN7QRb/newrating.png)
+![Movies](https://i.ibb.co/9b51sxk/tela.png)
 
 ## Technologies
 
-For this project I used Javascript, React and Ionic.
+For this project I used Javascript, Vue and Vuetify.
 
 ## Instructions
 
-First run "npm install" to install the dependencies. Then run "ionic serve" to start the application.
+First run "npm install" to install the dependencies. Then run "npm run serve" to start the application.
