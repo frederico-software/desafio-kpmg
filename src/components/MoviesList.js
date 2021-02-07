@@ -1,37 +1,16 @@
 import { IonBadge, IonContent, IonItem, IonLabel, IonList, IonThumbnail } from '@ionic/react';
-import { default as axios, default as Axios } from 'axios';
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router';
 import { getTopRated } from '../services/API';
 
 export const MoviesList = (props) => {
     const [movies, setMovies] = React.useState([]);
-    // const [genres, setGenres] = React.useState([]);
-    const [mostFrequentGenre, setMostFrequentGenre] = React.useState('');
-    const [rarestGenre, setRarestGenre] = React.useState('');
     const history = useHistory();
-    // let show = false;
-
-    // const getMostFrequentItem = (arr) => {
-    //     return arr.sort((a, b) =>
-    //         arr.filter(v => v === a).length
-    //         - arr.filter(v => v === b).length
-    //     ).pop();
-    // };
-
-    // const getRarestItem = (array) => {
-    //     const result = [...array.reduce((r, n) => // create a map of occurrences
-    //         r.set(n, (r.get(n) || 0) + 1), new Map()
-    //     )]
-    //         .reduce((r, v) => v[1] < r[1] ? v : r)[0]; // get the the item that appear less times
-    //     return result;
-    // };
 
     const sortTopMovies = (data) => {
-        if(typeof data !== 'object') return;
+        if (typeof data !== 'object') return;
         data.sort((a, b) => (a.vote_average < b.vote_average) ? 1 : -1);
         setMovies(data.slice(0, 100));
-        // console.log(data);
     }
 
     useEffect(() => {
@@ -39,31 +18,7 @@ export const MoviesList = (props) => {
         getTopRated().then(response => {
             if (!response || !response.data) return;
             sortTopMovies(response?.data?.results);
-
-            // temp = [];
-            // temp2.forEach(item => {
-            //     if (!item) return;
-            //     for (let i = 0; i < item.genre_ids.length; i++)
-            //         temp.push(item.genre_ids[i]);
-            // });
-            // // setGenres(temp);
-            // let mostFrequent = getMostFrequentItem(temp)
-            // let rarest = getRarestItem(temp);
-            // axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=39267d69a225ed0c8fb27c0959311d7f&language=en-US').then(response => {
-            //     let genres = response?.data?.genres;
-            //     console.log(genres)
-            //     for (let i = 0; i < genres.length; i++) {
-            //         if (genres[i].id == rarest)
-            //             setRarestGenre(genres[i].name)
-
-            //         if (genres[i].id == mostFrequent)
-            //             setMostFrequentGenre(genres[i].name)
-            //     }
-            //     console.log(rarestGenre);
-            // });
         });
-
-
     }, [movies]);
 
     const showDetails = (item) => {
@@ -87,8 +42,6 @@ export const MoviesList = (props) => {
     }
 
     return < IonContent >
-        {/* <p>Rarest genre: {rarestGenre}</p>
-        <p>Most Frequent genre: {mostFrequentGenre}</p> */}
         < IonList >
             {getMovies()}
         </IonList >

@@ -1,27 +1,26 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
-import { MoviesList } from '../components/MoviesList';
-import './Tab2.css';
+import React from 'react';
+import DashboardPage from '../components/DashboardPage';
+import './Tab1.css';
 
-const Tab2: React.FC = () => {
+const Tab1 = () => {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Movies</IonTitle>
+          <IonTitle>Dashboard</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Movies</IonTitle>
+            <IonTitle size="large">Dashboard</IonTitle>
           </IonToolbar>
         </IonHeader>
-        {/* <ExploreContainer name="Tab 2 page" /> */}
-        <MoviesList></MoviesList>
+        <DashboardPage />
       </IonContent>
     </IonPage>
   );
 };
 
-export default Tab2;
+export default Tab1;

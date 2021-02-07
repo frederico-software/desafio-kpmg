@@ -18,10 +18,10 @@ const isLocalhost = Boolean(
     window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/)
 );
 
-type Config = {
-  onSuccess?: (registration: ServiceWorkerRegistration) => void;
-  onUpdate?: (registration: ServiceWorkerRegistration) => void;
-};
+// type Config = {
+//   onSuccess?: (registration: ServiceWorkerRegistration) => void;
+//   onUpdate?: (registration: ServiceWorkerRegistration) => void;
+// };
 
 export function register(config?: Config) {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
@@ -101,7 +101,7 @@ function registerValidSW(swUrl: string, config?: Config) {
     });
 }
 
-function checkValidServiceWorker(swUrl: string, config?: Config) {
+function checkValidServiceWorker(swUrl, config) {
   // Check if the service worker can be found. If it can't reload the page.
   fetch(swUrl, {
     headers: { 'Service-Worker': 'script' },

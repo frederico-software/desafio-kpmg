@@ -1,4 +1,4 @@
-import { IonBackButton, IonBadge, IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonImg, IonInput, IonLabel, IonPage, IonPopover, IonRow, IonThumbnail, IonTitle, IonToast, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonBadge, IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonImg, IonInput, IonLabel, IonPage, IonPopover, IonRow, IonTitle, IonToast, IonToolbar } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { createNewGuestSession, getCredits, getDetails, submitNewRating } from '../services/API';
@@ -34,8 +34,8 @@ export const DetailsPage = () => {
     });
   }
 
-  useEffect(()=> {
-    if(details.length !== 0) return;
+  useEffect(() => {
+    if (details.length !== 0) return;
     getDetails(item?.id).then(response => {
       setDetails(response?.data);
     });
@@ -43,7 +43,7 @@ export const DetailsPage = () => {
     getCredits(item?.id).then(creditsResponse => {
       let credits = creditsResponse.data;
       let cast = [];
-      for(let i = 0; i < 5; i++) {
+      for (let i = 0; i < 5; i++) {
         let element = credits.cast[i];
         cast.push(element.name);
       }
@@ -108,7 +108,7 @@ export const DetailsPage = () => {
           <IonGrid>
             <IonRow>
               <IonCol>
-                <IonImg style={{width: '100%', height: 'auto'}} src={'https://image.tmdb.org/t/p/w500/' + item.poster_path} />
+                <IonImg src={'https://image.tmdb.org/t/p/w500/' + item.poster_path} />
               </IonCol>
               <IonCol >
                 <IonCardHeader>
@@ -116,7 +116,7 @@ export const DetailsPage = () => {
                   <IonCardTitle>{item.original_title}</IonCardTitle>
                 </IonCardHeader>
                 <p><strong>Genres:</strong></p>
-                {details? details?.genres?.map(item => <p>{item.name}</p>) : null}
+                {details ? details?.genres?.map(item => <p>{item.name}</p>) : null}
                 <p><strong>Actors:</strong></p>
                 <p>{actors}</p>
               </IonCol>

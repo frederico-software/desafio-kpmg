@@ -34,7 +34,7 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import { DetailsPage } from './components/DetailsPage';
 
-const App: React.FC = () => (
+const App = () => (
   <IonApp>
     <IonReactRouter>
       <IonTabs>
